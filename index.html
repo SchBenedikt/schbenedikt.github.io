@@ -1,7 +1,341 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chandula Janith | A Junior Developer from Sri Lanka</title>
+
+    <!-- Favicons -->
+    <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/logo.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/logo.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/logo.png"
+    />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+
+    <meta name="author" content="Chandula Janith" />
+    <meta
+      name="description"
+      content="Chandula's (RedEdge967) personal website created with glassmorphism UI"
+    />
+    <meta
+      name="keywords"
+      content="Developer, Portfolio, HTML, CSS, JS, GlassMorphic, Glassmorphic, GlassMorphism, Glassmorphism, UI"
+    />
+
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="canonical" href="https://rededge.vercel.app" />
+
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script defer src="./assets/js/all.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+    <script src="./assets/js/repo-card.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Animation-->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- <div id="progress">
+      <span id="progress-value"></span>
+    </div> -->
+
+    <section>
+      <div class="container">
+        <div id="top" class="page-scroll"></div>
+        <!-- Navbar -->
+        <header>
+          <a href="#top" class="logo">Chandula.</a>
+          <ul>
+            <li><a class="active page" href="#top" id="home-btn">Home</a></li>
+            <li><a href="#about" class="page" id="about-btn">About Me</a></li>
+            <li><a href="#projects" class="page" id="project-btn">Projects</a></li>
+            <li>
+              <a href="#contact" class="enabledisable page" id="contact-btn"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </header>
+
+        <!-- Main Content -->
+        <div class="content">
+          <div class="column">
+            <h2 data-aos="fade-down" data-aos-duration="1000">Hi all, I'm Chandula<span class="wave">👋</span></h2>
+            <p data-aos="fade-right" data-aos-duration="1000">
+              I love software development and deep learning. I
+              know a little bit of Web Dev too and UI/UX! Want to discuss
+              regarding any project or just want to say a Hi? I am always
+              available to listen to you.
+            </p>
+            <a href="mailto:janithc967@gmail.com" data-aos="fade-right" data-aos-duration="1000">Contact Me</a>
+          </div>
+          <div class="img">
+            <img src="./assets/me.png" alt="Hello There!!" data-aos="fade-up-right" data-aos-duration="1000"/>
+          </div>
+        </div>
+
+        <!-- 2nd Section -->
+        <div id="about" class="content page-scroll" style="justify-content: space-around">
+          <div class="img" data-aos="fade-right" data-aos-duration="1000">
+            <!-- https://media.giphy.com/media/7wA0YhMXvDBhTckOGM/giphy.gif?cid=790b7611b6565a9092ee51eeee34015858a0783fd77b6f31&rid=giphy.gif&ct=s -->
+            <img
+              src="https://media.giphy.com/media/7wA0YhMXvDBhTckOGM/source.gif?cid=790b7611b6565a9092ee51eeee34015858a0783fd77b6f31&rid=source.gif&ct=s"
+              alt="APS-OCTOCAT"
+            />
+          </div>
+          <div class="column-2">
+            <svg
+              xmlns="//www.w3.org/2000/svg"
+              version="1.1"
+              class="svg-filters"
+              style="display: none"
+            >
+              <defs>
+                <filter id="marker-shape">
+                  <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0 0.15"
+                    numOctaves="1"
+                    result="warp"
+                  />
+                  <feDisplacementMap
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                    scale="30"
+                    in="SourceGraphic"
+                    in2="warp"
+                  />
+                </filter>
+              </defs>
+            </svg>
+            <h2 style="font-weight: 550">
+              <span class="low-highlight-pink">What I do</span>
+            </h2>
+            <h3 style="font-size: 24px; color: #444444; font-weight: 1">
+              I love all aspects of technology and want to explore as much as I
+              can!
+            </h3>
+            <div class="dev-icons">
+              <ul>
+		<li class="software-skill-inline html5">
+                  <i class="devicon-html5-plain"></i>
+                  <p>HTML5</p>
+                </li>
+                <li class="software-skill-inline css3">
+                  <i class="devicon-css3-plain"></i>
+                  <p>CSS3</p>
+                </li>
+                <li class="software-skill-inline javascript">
+                  <i class="devicon-javascript-plain"></i>
+                  <p>JavaScript</p>
+                </li>
+		<li class="software-skill-inline linux">
+                  <i class="devicon-typescript-plain"></i>
+                  <p>TypeScript</p>
+		</li>
+		<li class="software-skill-inline linux">
+                  <i class="devicon-svelte-plain"></i>
+                  <p>Svelte</p>
+                </li>
+                <li class="software-skill-inline python">
+                  <i class="devicon-python-plain"></i>
+                  <p>Python</p>
+                </li>
+                <li class="software-skill-inline c">
+                  <i class="devicon-c-plain"></i>
+                  <p>C</p>
+                </li>
+                <li class="software-skill-inline cplusplus">
+                  <i class="devicon-cplusplus-plain"></i>
+                  <p>C++</p>
+                </li>
+                <li class="software-skill-inline flask">
+                  <i class="devicon-java-plain"></i>
+                  <p>Java</p>
+                </li>
+		<li class="software-skill-inline linux">
+                  <i class="devicon-react-original"></i>
+                  <p>React</p>
+                </li>
+		<li class="software-skill-inline linux">
+                  <i class="devicon-jquery-plain"></i>
+                  <p>JQuery</p>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p style="color: #444444; font-size: 20px">
+                <img
+                  alt="⚡"
+                  draggable="false"
+                  src="https://twemoji.maxcdn.com/2/72x72/26a1.png"
+                  style="
+                    height: 1em;
+                    width: 1em;
+                    margin: 0px 0.05em 0px 0.1em;
+                    vertical-align: -0.1em;
+                  "
+                />
+                Develop highly interactive Front end / User Interfaces for your
+                web
+              </p>
+              <p style="color: #444444; font-size: 20px">
+                <img
+                  alt="⚡"
+                  draggable="false"
+                  src="https://twemoji.maxcdn.com/2/72x72/26a1.png"
+                  style="
+                    height: 1em;
+                    width: 1em;
+                    margin: 0px 0.05em 0px 0.1em;
+                    vertical-align: -0.1em;
+                  "
+                />
+                Develop games, softwares and Design more and more things
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 4th Section -->
+        <svg
+          xmlns="//www.w3.org/2000/svg"
+          version="1.1"
+          class="svg-filters"
+          style="display: none"
+        >
+          <defs>
+            <filter id="marker-shape">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0 0.15"
+                numOctaves="1"
+                result="warp"
+              />
+              <feDisplacementMap
+                xChannelSelector="R"
+                yChannelSelector="G"
+                scale="30"
+                in="SourceGraphic"
+                in2="warp"
+              />
+            </filter>
+          </defs>
+        </svg>
+        <h2
+          id="projects"
+          class="mob-h2 page-scroll"
+          style="font-size: 56px; font-weight: 700; margin-top: 50px"
+        >
+          <span class="low-highlight-cyan">Projects</span>
+        </h2>
+        <div class="projects" data-aos="fade-up" data-aos-duration="1500">
+          <div class="repo-card" data-repo="RedEdge967/adventures-of-red"></div>
+          <div class="repo-card" data-repo="RedEdge967/MK-Wiki"></div>
+          <div
+            class="repo-card"
+            data-repo="RedEdge967/Doctor-Strange"
+          ></div>
+          <div
+            class="repo-card"
+            data-repo="RedEdge967/Spider-Man"
+          ></div>
+          <div
+            class="repo-card"
+            data-repo="RedEdge967/Keyboard-Hero"
+          ></div>
+          <div class="repo-card" data-repo="RedEdge967/candy-crush"></div>
+        </div>
+
+        <h2  id="contact"
+          class="mob-connect enabledisable page-scroll"
+          style="font-size: 40px; font-weight: 700; margin-top: 50px"
+        >
+          <span class="low-highlight-hazeskin">Connect with me</span>
+        </h2>
+        <ul class="socialsites ">
+          <li>
+            <a href="https://github.com/RedEdge967"><i class="fab fa-github"></i></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/chandula-janith-is-here/"><i class="fab fa-linkedin"></i></a>
+          </li>
+          <li>
+            <a href="https://codepen.io/RedEdge967"><i class="fab fa-codepen"></i></a>
+          </li>
+	  <li>
+            <a href="https://dribbble.com/RedEdge967"><i class="fab fa-dribbble"></i></a>
+          </li>
+          <li>
+            <a href="https://discordapp.com/users/931930701463437334"><i class="fab fa-discord"></i></a>
+          </li>
+        </ul>
+
+        <!-- Footer -->
+      </div>
+    </section>
+    <div class="button-top-div" id="myDIV">
+      <a id="button-top" href="#top"><i class="fas fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Page Scroll Percentage -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- Page Scroll Up On Click -->
+    <script>
+      //scroller fixed
+      var scrolBtn = document.querySelector("#myDIV");
+      window.addEventListener("scroll", function () {
+        let offset;
+        offset = window.pageYOffset;
+        if (offset > 300) {
+          scrolBtn.style.display = "block";
+        }
+        if (offset < 300) {
+          scrolBtn.style.display = "none";
+        }
+      });
+
+      //remove that #s in the link
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        });
+      });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>
