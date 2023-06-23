@@ -10,7 +10,7 @@ body{
   height: 100vh;;
   width: 100%;
   display: flex;
-  background-image: linear-gradient( 135deg, #ff9a9e  10%, #F6416C 100%);
+  background-image: linear-gradient( 135deg, #03fcfc  10%, #05f7d7 100%);
 }
 ::selection{
   color: #f2f2f2;
