@@ -13,47 +13,24 @@
       <p>I'm a passionate developer with a love for coding and creating innovative solutions. I enjoy working on various projects and exploring new technologies.</p>
       <p>Feel free to explore my GitHub repositories and see the projects I've been working on.<br><br>🏢 Schächner</p>       
     </div>
-<div class="links" onclick="openOverlay('links')">
-  <a href="https://xn--schchner-2za.de/" class="button">🏢 Schächner</a> <br>
-  <a href="https://technik.xn--schchner-2za.de/" class="button">🧑‍💻 Tech Schächner</a> <br>
- </div>
-
-
-
-    
-
+    <div class="links" onclick="openOverlay('links')">
+      <a href="https://xn--schchner-2za.de/" class="button">🏢 Schächner</a> <br>
+      <a href="https://technik.xn--schchner-2za.de/" class="button">🧑‍💻 Tech Schächner</a> <br>
+    </div>
   </div>
   <div class="projects">
-    <div class="project" onclick="openOverlay('project1')">
-      <h2>Project 1</h2>
-      <p>This is the description of Project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      <a href="#">View Project</a>
-    </div>
-      <div class="project" onclick="openOverlay('project2')">
-        <h2>Project 2</h2>
-        <p>This is the description of Project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <a href="#">View Project</a>
-      </div>
-      <div class="project" onclick="openOverlay('project3')">
-        <h2>Project 3</h2>
-        <p>This is the description of Project 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        <a href="#">View Project</a>
-      </div>
-    </div>
+    <!-- Projektdaten werden hier dynamisch eingefügt -->
   </div>
-  
-  <div class="overlay" id="overlay">
-    <div class="overlay-content" id="overlay-content">
-      <div class="close-btn" onclick="closeOverlay()">
-        <div class="close-icon"></div>
-      </div>
-      <h2 id="overlay-title">About Me</h2>
-      <p id="overlay-description">I'm a passionate developer with a love for coding and creating innovative solutions. I enjoy working on various projects and exploring new technologies.</p>
-      <p>Feel free to explore my GitHub repositories and see the projects I've been working on.
-      </p>
+</div>
 
+<div class="overlay" id="overlay" onclick="closeOverlay(event)">
+  <div class="overlay-content" id="overlay-content">
+    <div class="close-btn" onclick="closeOverlay(event)">
+      <div class="close-icon"></div>
     </div>
+    <h2 id="overlay-title">About Me</h2>
+    <div id="overlay-readme"></div>
   </div>
-    <script src="script.js"></script>
+</div>
 </body>
 </html>
