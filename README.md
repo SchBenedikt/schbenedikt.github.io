@@ -3,9 +3,11 @@
 This project showcases my GitHub repositories and allows you to explore the projects I've been working on. It uses the GitHub API to fetch the project data and displays it in a user-friendly format.
 
 ---
+
 If you like my project, I would be happy about a star ⭐!
 
 ---
+
 ![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/3d4b79a6-3859-4af6-b63b-3b5890c9c2de)
 ![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/94c3e630-6d8b-4f80-bba5-069d457952c8)
 ![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/df05abab-f7b5-4aa8-a0b7-d6d9023a1cc1)
@@ -37,6 +39,10 @@ The `openOverlay(project)` function opens an overlay that displays the content o
 ### Closing the Overlay
 
 The `closeOverlay()` function enables users to easily close the overlay by clicking on the close button or outside the overlay area. It gracefully fades out the overlay, smoothly transitioning back to the main projects view.
+
+### Automatically Filled About Me Description
+
+The About Me section in the sidebar is automatically filled with the content from the README.md file of the repository that has the same name as the username. It provides a brief introduction and allows users to learn more about the project owner.
 
 ## Design Effects
 
@@ -73,10 +79,6 @@ If you have any suggestions, improvements, or feedback, please don't hesitate to
 ## License
 
 This project is licensed under the MIT License. For more information, refer to the [LICENSE](link-to-license-file) file.
-
-## Acknowledgments
-
-I would like to express my gratitude to the GitHub API for providing the necessary data to build this project. Additionally, special thanks to the open-source community for their invaluable contributions and the various design resources that have inspired and guided the implementation of the design effects.
 
 
 Thank you for exploring my GitHub Projects!
