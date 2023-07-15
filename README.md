@@ -3,7 +3,7 @@
 This project showcases my GitHub repositories and allows you to explore the projects I've been working on. It uses the GitHub API to fetch the project data and displays it in a user-friendly format.
 
 ---
-If you like my project, I would be happy about a star!
+If you like my project, I would be happy about a star ⭐!
 
 ---
 ![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/3d4b79a6-3859-4af6-b63b-3b5890c9c2de)
