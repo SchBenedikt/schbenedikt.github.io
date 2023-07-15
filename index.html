@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My GitHub Projects</title>
+   <title>My GitHub Projects</title>
    <link rel="stylesheet" href="style.css">
    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 <div class="container">
-  <div class="sidebar">
-    <div class="about" onclick="openOverlay('about')">
-      <img class="profile-img" src="profile_picture.jpg" alt="Profile Picture">
-      <h2>About Me</h2>
-      <p>I'm a passionate developer with a love for coding and creating innovative solutions. I enjoy working on various projects and exploring new technologies.</p>
-      <p>Feel free to explore my GitHub repositories and see the projects I've been working on.<br><br>🏢 Schächner</p>       
-    </div>
-    <div class="links" onclick="openOverlay('links')">
-      <a href="https://xn--schchner-2za.de/" class="button">🏢 Schächner</a> <br>
-      <a href="https://technik.xn--schchner-2za.de/" class="button">🧑‍💻 Tech Schächner</a> <br>
-    </div>
-  </div>
-  <div class="projects">
-    <!-- Projektdaten werden hier dynamisch eingefügt -->
-  </div>
+   <div class="sidebar">
+     <div class="about" onclick="openOverlay('about')">
+       <img class="profile-img" src="https://github.com/SchBenedikt/schbenedikt.github.io/blob/main/profile_picture.jpg?raw=true" alt="Profile Picture">
+       <h2>About Me</h2>
+       <p id="about-description">Loading...</p>
+       <p>Feel free to explore my GitHub repositories and see the projects I've been working on.<br><br>🏢 Schächner</p>
+     </div>
+     <div class="links" onclick="openOverlay('links')">
+       <a href="https://xn--schchner-2za.de/" class="button">🏢 Schächner</a> <br>
+       <a href="https://technik.xn--schchner-2za.de/" class="button">🧑‍💻 Tech Schächner</a> <br>
+       <div id="social-links"></div>
+     </div>
+   </div>
+   <div class="projects">
+     <!-- Project data is dynamically inserted here -->
+   </div>
 </div>
 
 <div class="overlay" id="overlay" onclick="closeOverlay(event)">
-  <div class="overlay-content" id="overlay-content">
-    <div class="close-btn" onclick="closeOverlay(event)">
-      <div class="close-icon"></div>
-    </div>
-    <h2 id="overlay-title">About Me</h2>
-    <div id="overlay-readme"></div>
-  </div>
+   <div class="overlay-content" id="overlay-content">
+     <div class="close-btn" onclick="closeOverlay(event)">
+       <div class="close-icon"></div>
+     </div>
+     <h2 id="overlay-title">About Me</h2>
+     <div id="overlay-readme"></div>
+   </div>
 </div>
+
 </body>
 </html>
