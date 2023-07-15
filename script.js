@@ -56,21 +56,28 @@ async function openOverlay(project) {
    const overlayTitle = document.getElementById("overlay-title");
    const overlayReadme = document.getElementById("overlay-readme");
 
-   overlayTitle.textContent = project.name;
+   if (project === 'about') {
+     overlayTitle.textContent = "About Me";
+     const aboutDescription = document.getElementById("about-description");
+     overlayReadme.innerHTML = aboutDescription.innerHTML;
+   } else {
+     overlayTitle.textContent = project.name;
 
-   try {
-     // Get README.md content
-     const readmeContent = await getReadmeContent(defaultUsername, project.name);
+     try {
+       // Get README.md content
+       const readmeContent = await getReadmeContent(defaultUsername, project.name);
 
-     // Paste the content into the overlay
-     const converter = new showdown.Converter();
-     const htmlContent = converter.makeHtml(readmeContent);
-     overlayReadme.innerHTML = htmlContent;
-
-     overlay.classList.add("active");
-   } catch (error) {
-     console.error("Error getting README.md content:", error);
+       // Paste the content into the overlay
+       const converter = new showdown.Converter();
+       const htmlContent = converter.makeHtml(readmeContent);
+       overlayReadme.innerHTML = htmlContent;
+     } catch (error) {
+       console.error("Error getting README.md content:", error);
+       return;
+     }
    }
+
+   overlay.classList.add("active");
 }
 
 // Function to close the overlay
