@@ -108,3 +108,65 @@ getReadmeContent(defaultUsername, defaultUsername)
    .catch((error) => {
      console.error("Error loading README.md file:", error);
    });
+
+   // Get the projects container
+   const projectsContainer = document.querySelector(".projects");
+
+   // Filter the projects based on the search input
+   function filterProjects() {
+     const searchInput = document.getElementById("search-input").value.toLowerCase();
+     const projectCards = projectsContainer.getElementsByClassName("project");
+
+     for (const projectCard of projectCards) {
+       const title = projectCard.querySelector("h2").textContent.toLowerCase();
+       const description = projectCard.querySelector("p").textContent.toLowerCase();
+
+       if (title.includes(searchInput) || description.includes(searchInput)) {
+         projectCard.style.display = "block";
+       } else {
+         projectCard.style.display = "none";
+       }
+     }
+   }
+
+   // Function to submit a comment
+   async function submitComment(event) {
+     event.preventDefault();
+     event.stopPropagation();
+
+     const commentInput = document.getElementById("comment-input");
+     const comment = commentInput.value.trim();
+     commentInput.value = "";
+
+     if (comment === "") {
+       return;
+     }
+
+     const projectId = document.getElementById("overlay-title").textContent;
+     const url = `https://api.github.com/repos/schBenedikt/${projectId}/issues`;
+
+     const response = await fetch(url, {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+         Authorization: "Bearer YOUR_GITHUB_ACCESS_TOKEN",
+       },
+       body: JSON.stringify({
+         title: "Comment",
+         body: comment,
+       }),
+     });
+
+     if (response.ok) {
+       const commentsList = document.getElementById("comments-list");
+       const commentItem = document.createElement("div");
+       commentItem.classList.add("comment");
+       commentItem.textContent = comment;
+       commentsList.appendChild(commentItem);
+     }
+   }
+
+   // Function to stop event propagation
+   function stopPropagation(event) {
+     event.stopPropagation();
+   }
