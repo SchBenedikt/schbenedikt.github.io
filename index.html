@@ -3,11 +3,12 @@
 <head>
    <title>My GitHub Projects</title>
    <link rel="stylesheet" href="style.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-<div class="container">
+<div class="container" onclick="preventContainerClick(event)">
    <div class="sidebar">
      <div class="about" onclick="openOverlay('about')">
        <img class="profile-img" src="https://github.com/SchBenedikt/schbenedikt.github.io/blob/main/profile_picture.jpg?raw=true" alt="Profile Picture">
@@ -21,7 +22,11 @@
        <div id="social-links"></div>
      </div>
    </div>
+  
    <div class="projects">
+     <div class="search">
+       <input type="text" id="search-input" placeholder="Search projects..." oninput="filterProjects()">
+     </div>
      <!-- Project data is dynamically inserted here -->
    </div>
 </div>
@@ -33,8 +38,18 @@
      </div>
      <h2 id="overlay-title">About Me</h2>
      <div id="overlay-readme"></div>
+
+     <div class="comments">
+       <h3>Comments</h3>
+       <div id="comments-list"></div>
+       <form id="comment-form" onsubmit="submitComment(event)">
+         <input type="text" id="comment-input" placeholder="Enter your comment..." onclick="stopPropagation(event)">
+         <input type="submit" value="Submit" onclick="stopPropagation(event)">
+       </form>
+     </div>
    </div>
 </div>
+
 
 </body>
 </html>
