@@ -4,14 +4,14 @@ This project showcases my GitHub repositories and allows you to explore the proj
 
 ---
 
-If you like my project, I would be happy about a star ⭐!
+If you like my project, I would appreciate your support with a star ⭐!
 
 ---
 
-![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/3d4b79a6-3859-4af6-b63b-3b5890c9c2de)
-![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/94c3e630-6d8b-4f80-bba5-069d457952c8)
-![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/df05abab-f7b5-4aa8-a0b7-d6d9023a1cc1)
-![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/1375b76a-9b28-4822-9ebb-b60bc445f20b)
+![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/3d4b79a6-3859-4af6-b63b-3b5890c9c2de)
+![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/94c3e630-6d8b-4f80-bba5-069d457952c8)
+![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/df05abab-f7b5-4aa8-a0b7-d6d9023a1cc1)
+![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/1375b76a-9b28-4822-9ebb-b60bc445f20b)
 
 
 ---
@@ -28,49 +28,40 @@ The `getGitHubProjects(username)` function leverages the power of the GitHub API
 
 ### Creating Project Cards
 
-The `createProjectCards(projects)` function dynamically generates project cards based on the fetched project data. Each card showcases key information, including the project name, a brief description, and a link to view the project on GitHub. The project cards are designed to be responsive and adapt to different screen sizes.
+Once the project data is fetched, the website dynamically generates project cards based on the retrieved information. Each card showcases key details such as the project name, a brief description, and a link to view the project on GitHub. These project cards are designed to be responsive, ensuring optimal viewing on different screen sizes.
 
-### Getting README.md Content
+### Powerful Search Functionality
 
-The `getReadmeContent(username, repoName)` function retrieves the contents of a project's README.md file from the GitHub API. By providing the `username` and `repoName` parameters, it fetches the raw Markdown content. The content is then processed and rendered in a formatted manner for a pleasant reading experience.
+The newly added search functionality allows users to search for specific projects based on keywords. As users type in the search bar, the projects dynamically filter based on the input, providing instant feedback and making it easy to find relevant projects. This powerful search feature enhances the usability of the website and saves users time in navigating through the projects.
 
-### Opening the Overlay
+### Responsive Layout
 
-The `openOverlay(project)` function opens an overlay that displays the content of a project's README.md file. When a project card is clicked, this function is triggered, fetching and displaying the relevant README.md content. The overlay features a sleek and modern design, centered on the screen, allowing users to focus on the project details.
-
-### Closing the Overlay
-
-The `closeOverlay()` function enables users to easily close the overlay by clicking on the close button or outside the overlay area. It gracefully fades out the overlay, smoothly transitioning back to the main projects view.
-
-### Automatically Filled About Me Description
-
-The About Me section in the sidebar is automatically filled with the content from the README.md file of the repository that has the same name as the username. It provides a brief introduction and allows users to learn more about the project owner.
+The website now features a responsive layout that adapts seamlessly to different screen sizes. Whether users are browsing on a desktop, tablet, or mobile device, they will have an optimal viewing experience. The responsive design ensures that the content is displayed in a user-friendly manner, maintaining readability and usability.
 
 ## Design Effects
 
-This project incorporates several design effects to create an engaging and visually appealing experience:
+In addition to the powerful search functionality and responsive layout, this project incorporates various design effects to create an engaging and visually appealing experience:
 
-- **Responsive Layout**: The layout of the project adapts to different screen sizes, ensuring optimal usability and readability across devices.
+- **Neumorphism Design**: The project cards and other elements of the website follow the Neumorphism design trend, combining elements of skeuomorphism and flat design. This creates a soft and subtle three-dimensional appearance, providing a modern and elegant look.
 
-- **Sleek Overlay**: The overlay that displays the README.md content features a clean and elegant design. It is centered on the screen and adjusts its size to fit the content.
+- **Smooth Transitions**: Opening and closing project overlays are accompanied by smooth transition effects, creating a seamless and delightful user experience.
 
-- **Smooth Transitions**: Opening and closing the overlay is accompanied by smooth transition effects, providing a seamless user experience.
+- **Subtle Shadows**: The project cards and overlays have subtle box shadows applied, adding depth and dimension to the design and contributing to the overall Neumorphism style.
 
-- **Subtle Shadows**: Project cards and the overlay container have subtle box shadows applied, adding depth and dimension to the design.
+- **Attention to Typography**: Careful attention has been given to typography throughout the website. Appropriate font styles, sizes, and line heights are used to ensure optimal readability and visual harmony.
 
-- **Attention to Typography**: Careful attention has been given to typography, with appropriate font styles, sizes, and line heights used throughout the project.
+- **Engaging Hover Effects**: Interactive hover effects are applied to project cards, providing visual feedback and enhancing the interactive nature of the website. When users hover over a project card, it subtly transforms to create an engaging and dynamic experience.
 
-- **Engaging Hover Effects**: Interactive hover effects have been applied to project cards, enhancing their visual appeal and providing a sense of interactivity.
+## How to Use
 
-## Usage
+To use this project for your own GitHub repositories, follow these steps:
 
-To use this project with your own GitHub repositories, follow these steps:
-
-1. Update the `defaultUsername` variable with your GitHub username.
-2. Customize the HTML structure, CSS styles, and design effects to match your preferences.
-3. Incorporate your own branding and visual elements to create a unique showcase of your GitHub projects.
-4. Deploy the project to a web server or host it locally.
-5. Visit the webpage to explore and showcase your GitHub repositories in a visually appealing way.
+1. Set up a GitHub repository to host your project.
+2. Update the `defaultUsername` variable in the JavaScript code with your GitHub username.
+3. Customize the HTML structure, CSS styles, and design effects to match your preferences.
+4. Incorporate your own branding and visual elements to create a unique showcase of your GitHub projects.
+5. Deploy the project to a web server or host it locally.
+6. Visit the webpage to explore and showcase your GitHub repositories in a visually appealing and user-friendly way.
 
 Feel free to experiment with the CSS styles, add animations, or include additional design effects to make the project truly your own.
 
@@ -81,6 +72,5 @@ If you have any suggestions, improvements, or feedback, please don't hesitate to
 ## License
 
 This project is licensed under the MIT License. For more information, refer to the [LICENSE](link-to-license-file) file.
-
 
 Thank you for exploring my GitHub Projects!
