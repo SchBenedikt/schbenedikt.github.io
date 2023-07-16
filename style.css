@@ -25,6 +25,20 @@ body {
 .container:hover {
   transform: scale(1);
 }
+.dark-mode {
+  background-color: #575757;
+  color: #f0f0f0;
+}
+.dark-mode .body,
+.dark-mode .about,
+.dark-mode .project,
+.dark-mode .overlay,
+.dark-mode .button,
+.dark-mode .overlay-content {
+  background-color: #383838;
+  color: #fff;
+}
+
 
 .sidebar {
   flex-basis: 45%;
@@ -250,4 +264,74 @@ body {
 
 .button:focus {
   outline: none;
+}
+
+.search {
+  margin-bottom: 20px;
+  margin-left: 80px;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 50%;
+  width: 80%;
+  background-color: #f0f0f0;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.search:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.search input {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  flex-basis: 50%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  width: 100%;
+}
+
+.search input:focus {
+  outline: none;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 880px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .sidebar {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+
+  .about,
+  .links {
+    margin-left: 0;
+  }
+
+  .projects {
+    flex-basis: 100%;
+  }
+
+  .project {
+    margin-left: 0;
+  }
+
+  .search {
+    margin-left: 0;
+    width: 98%;
+    border-radius: 30px;
+  }
+
+  .search input {
+    width: 98%;
+        border-radius: 30px;
+  }
 }
