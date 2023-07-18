@@ -1,5 +1,12 @@
-// Default username
-const defaultUsername = "schBenedikt";
+   // Default username
+let username = "";
+
+// Function to get the GitHub user data via API
+async function getGitHubUser(username) {
+  const response = await fetch(`https://api.github.com/users/${username}`);
+  const data = await response.json();
+  return data;
+}
 
 // Function to get the GitHub project data via API
 async function getGitHubProjects(username) {
@@ -8,9 +15,10 @@ async function getGitHubProjects(username) {
    return data;
 }
 
-// Function to create the project maps based on the project data
+// Function to create the project cards based on the project data
 function createProjectCards(projects) {
    const projectsContainer = document.querySelector(".projects");
+   projectsContainer.innerHTML = ""; // Clear existing project cards
 
    projects.forEach((project) => {
      const projectCard = document.createElement("div");
@@ -65,7 +73,7 @@ async function openOverlay(project) {
 
      try {
        // Get README.md content
-       const readmeContent = await getReadmeContent(defaultUsername, project.name);
+       const readmeContent = await getReadmeContent(username, project.name);
 
        // Paste the content into the overlay
        const converter = new showdown.Converter();
@@ -86,87 +94,80 @@ function closeOverlay() {
    overlay.classList.remove("active");
 }
 
-// example call of the functions
-const username = defaultUsername;
+// Function to update the username and reload data
+function updateUsername() {
+  const usernameInput = document.getElementById("username-input");
+  const newUsername = usernameInput.value.trim();
 
-getGitHubProjects(username)
-   .then((projects) => {
-     createProjectCards(projects);
-   })
-   .catch((error) => {
-     console.error("Error getting GitHub projects:", error);
-   });
+  if (newUsername === "") {
+    alert("Please enter a valid username.");
+    return;
+  }
 
-// Load README.md file for "About Me".
-getReadmeContent(defaultUsername, defaultUsername)
-   .then((readmeContent) => {
-     const aboutDescription = document.getElementById("about-description");
-     const converter = new showdown.Converter();
-     const htmlContent = converter.makeHtml(readmeContent);
-     aboutDescription.innerHTML = htmlContent;
-   })
-   .catch((error) => {
-     console.error("Error loading README.md file:", error);
-   });
+  username = newUsername;
+  usernameInput.value = ""; // Clear the input field
 
-   // Get the projects container
-   const projectsContainer = document.querySelector(".projects");
+  // Reload data
+  Promise.all([
+    getGitHubUser(username),
+    getGitHubProjects(username),
+    getReadmeContent(username, username)
+  ])
+    .then(([user, projects, aboutContent]) => {
+      createProjectCards(projects);
+      const aboutDescription = document.getElementById("about-description");
+      const converter = new showdown.Converter();
+      const htmlContent = converter.makeHtml(aboutContent);
+      aboutDescription.innerHTML = htmlContent;
 
-   // Filter the projects based on the search input
-   function filterProjects() {
-     const searchInput = document.getElementById("search-input").value.toLowerCase();
-     const projectCards = projectsContainer.getElementsByClassName("project");
+      // Update the user profile picture
+      const profileImg = document.getElementById("profile-picture");
+      profileImg.src = user.avatar_url;
+      profileImg.alt = `${username}'s Profile Picture`;
+    })
+    .catch((error) => {
+      console.error("Error updating username:", error);
+    });
+}
 
-     for (const projectCard of projectCards) {
-       const title = projectCard.querySelector("h2").textContent.toLowerCase();
-       const description = projectCard.querySelector("p").textContent.toLowerCase();
+// Get the projects container
+const projectsContainer = document.querySelector(".projects");
 
-       if (title.includes(searchInput) || description.includes(searchInput)) {
-         projectCard.style.display = "block";
-       } else {
-         projectCard.style.display = "none";
-       }
-     }
-   }
+// Filter the projects based on the search input
+function filterProjects() {
+  const searchInput = document.getElementById("search-input").value.toLowerCase();
+  const projectCards = projectsContainer.getElementsByClassName("project");
 
-   // Function to submit a comment
-   async function submitComment(event) {
-     event.preventDefault();
-     event.stopPropagation();
+  for (const projectCard of projectCards) {
+    const title = projectCard.querySelector("h2").textContent.toLowerCase();
+    const description = projectCard.querySelector("p").textContent.toLowerCase();
 
-     const commentInput = document.getElementById("comment-input");
-     const comment = commentInput.value.trim();
-     commentInput.value = "";
+    if (title.includes(searchInput) || description.includes(searchInput)) {
+      projectCard.style.display = "block";
+    } else {
+      projectCard.style.display = "none";
+    }
+  }
+}
 
-     if (comment === "") {
-       return;
-     }
+// Load initial data
+Promise.all([
+  getGitHubUser(username),
+  getGitHubProjects(username),
+  getReadmeContent(username, username)
+])
+  .then(([user, projects, aboutContent]) => {
+    createProjectCards(projects);
+    const aboutDescription = document.getElementById("about-description");
+    const converter = new showdown.Converter();
+    const htmlContent = converter.makeHtml(aboutContent);
+    aboutDescription.innerHTML = htmlContent;
 
-     const projectId = document.getElementById("overlay-title").textContent;
-     const url = `https://api.github.com/repos/schBenedikt/${projectId}/issues`;
-
-     const response = await fetch(url, {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-         Authorization: "Bearer YOUR_GITHUB_ACCESS_TOKEN",
-       },
-       body: JSON.stringify({
-         title: "Comment",
-         body: comment,
-       }),
-     });
-
-     if (response.ok) {
-       const commentsList = document.getElementById("comments-list");
-       const commentItem = document.createElement("div");
-       commentItem.classList.add("comment");
-       commentItem.textContent = comment;
-       commentsList.appendChild(commentItem);
-     }
-   }
-
-   // Function to stop event propagation
-   function stopPropagation(event) {
-     event.stopPropagation();
-   }
+    // Set the user profile picture
+    const profileImg = document.getElementById("profile-picture");
+    profileImg.src = user.avatar_url;
+    profileImg.alt = `${username}'s Profile Picture`;
+  })
+  .catch((error) => {
+    console.error("Error loading initial data:", error);
+  }); 
