@@ -17,7 +17,7 @@ body {
   background-color: #f0f0f0;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  transform: scale(0.95);
+ /* transform: scale(0.95); */
   transition: transform 0.3s ease;
   display: flex;
 }
@@ -268,37 +268,40 @@ body {
 
 .search {
   margin-bottom: 20px;
-  margin-left: 80px;
-  justify-content: center;
+  display: flex;
   align-items: center;
-  flex-basis: 50%;
+  justify-content: center;
   width: 80%;
-  background-color: #f0f0f0;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.search:hover {
-  transform: translateY(-5px);
-  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  
 }
 
 .search input {
+  min-width: 100px;
   padding: 8px;
   border-radius: 20px;
   border: 1px solid #ccc;
   flex-basis: 50%;
-  justify-content: center;
-  align-items: center;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
-  width: 100%;
+  width: auto;
 }
 
 .search input:focus {
   outline: none;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.search::before {
+  content: "";
+  width: auto;
+  high: auto;
+  position: absolute;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  z-index: -1;
+}
+
 @media (max-width: 880px) {
   .container {
     flex-direction: column;
@@ -334,4 +337,43 @@ body {
     width: 98%;
         border-radius: 30px;
   }
+}
+/* Weitere CSS-Styles hier */
+
+.username-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.username-input-container input {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  flex-basis: 50%;
+  margin-right: 10px;
+}
+
+.username-input-container button {
+  padding: 8px 12px;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.username-input-container button:hover {
+  transform: scale(1.1);
+}
+
+.username-input-container button:focus {
+  outline: none;
 }
