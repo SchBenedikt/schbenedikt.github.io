@@ -1,5 +1,5 @@
    // Default username
-let username = "";
+let username = "schBenedikt";
 
 // Function to get the GitHub user data via API
 async function getGitHubUser(username) {
@@ -171,3 +171,38 @@ Promise.all([
   .catch((error) => {
     console.error("Error loading initial data:", error);
   }); 
+  
+  // Function to handle keydown event on the username input field
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      updateUsername();
+    }
+  }
+
+$(document).ready(function(){
+  var retryCount = 0;
+  var maxRetries = 3;
+
+  function fetchData() {
+    $.ajax({
+      url: "https://api.github.com/",
+      type: "GET",
+      success: function(){
+        $(".container").addClass("success");
+        $("#github-api-status").html("🟢 GitHub API is working");
+      },
+      error: function(){
+        if (retryCount < maxRetries) {
+          retryCount++;
+          $("#github-api-status").html("🔵 Connection error. Retrying... (" + retryCount + "/" + maxRetries + ")");
+          setTimeout(fetchData, 3000); // Retry after 3 seconds
+        } else {
+          $(".container").addClass("error");
+          $("#github-api-status").html("🔴 GitHub API is not available");
+        }
+      }
+    });
+  }
+
+  fetchData();
+});
