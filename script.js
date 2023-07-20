@@ -59,40 +59,40 @@ async function getReadmeContent(username, repoName) {
 }
 
 // Function to open the overlay with the contents of the README.md file
-async function openOverlay(project) {
-   const overlay = document.getElementById("overlay");
-   const overlayTitle = document.getElementById("overlay-title");
-   const overlayReadme = document.getElementById("overlay-readme");
+// async function openOverlay(project) {
+//    const overlay = document.getElementById("overlay");
+//    const overlayTitle = document.getElementById("overlay-title");
+//    const overlayReadme = document.getElementById("overlay-readme");
 
-   if (project === 'about') {
-     overlayTitle.textContent = "About Me";
-     const aboutDescription = document.getElementById("about-description");
-     overlayReadme.innerHTML = aboutDescription.innerHTML;
-   } else {
-     overlayTitle.textContent = project.name;
+//    if (project === 'about') {
+//      overlayTitle.textContent = "About Me";
+//      const aboutDescription = document.getElementById("about-description");
+//      overlayReadme.innerHTML = aboutDescription.innerHTML;
+//    } else {
+//      overlayTitle.textContent = project.name;
 
-     try {
-       // Get README.md content
-       const readmeContent = await getReadmeContent(username, project.name);
+//      try {
+//        // Get README.md content
+//        const readmeContent = await getReadmeContent(username, project.name);
 
-       // Paste the content into the overlay
-       const converter = new showdown.Converter();
-       const htmlContent = converter.makeHtml(readmeContent);
-       overlayReadme.innerHTML = htmlContent;
-     } catch (error) {
-       console.error("Error getting README.md content:", error);
-       return;
-     }
-   }
+//        // Paste the content into the overlay
+//        const converter = new showdown.Converter();
+//        const htmlContent = converter.makeHtml(readmeContent);
+//        overlayReadme.innerHTML = htmlContent;
+//      } catch (error) {
+//        console.error("Error getting README.md content:", error);
+//        return;
+//      }
+//    }
 
-   overlay.classList.add("active");
-}
+//    overlay.classList.add("active");
+// }
 
-// Function to close the overlay
-function closeOverlay() {
-   const overlay = document.getElementById("overlay");
-   overlay.classList.remove("active");
-}
+// // Function to close the overlay
+// function closeOverlay() {
+//    const overlay = document.getElementById("overlay");
+//    overlay.classList.remove("active");
+// }
 
 // Function to update the username and reload data
 function updateUsername() {
