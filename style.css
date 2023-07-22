@@ -419,3 +419,14 @@ img {
 .menu a:focus {
   outline: none;
 }
+
+/* GitHub Search */
+
+.gh-search-bar {
+  width: 300px;
+  height: 100px;
+}
+.gh-search-list {
+  list-style: none;
+  padding: 0;
+}
