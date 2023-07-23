@@ -49,6 +49,12 @@
             />
             <button onclick="updateUsername()">Update</button>
           </div>
+          <select
+            class="gh-search-list"
+            id="userSelect"
+            size="5"
+            onchange="handleSelectChange()"
+          ></select>
         </div>
       </div>
 
@@ -66,16 +72,6 @@
         <div id="overlay-readme"></div>
       </div>
     </div>
-
-    <!-- GitHub Search -->
-
-    <h1 class="gh-search">Github User Search</h1>
-    <textarea
-      class="gh-search-bar"
-      id="searchInput"
-      placeholder="Enter a word"
-    ></textarea>
-    <ul class="gh-search-list" id="userList"></ul>
 
     <script type="text/javascript" src="js/predict.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

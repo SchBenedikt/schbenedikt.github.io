@@ -1,13 +1,14 @@
 const apiUrl = 'https://api.github.com/search/users';
-const userList = document.getElementById('userList');
-const searchInput = document.getElementById('searchInput');
+const userSelect = document.getElementById('userSelect');
+const searchInput = document.getElementById('username-input');
 
 searchInput.addEventListener('input', debounce(handleInput, 300));
+userSelect.addEventListener('change', handleSelectChange);
 
 async function handleInput() {
     const searchWord = searchInput.value.trim();
     if (searchWord === '') {
-    userList.innerHTML = '';
+    userSelect.innerHTML = '';
     return;
     }
 
@@ -18,17 +19,22 @@ async function handleInput() {
     const usernames = data.items.slice(0, 5).map(item => item.login);
     displayUsernames(usernames);
     } else {
-    userList.innerHTML = 'No results found.';
+    userSelect.innerHTML = '<option value="">No results found.</option>';
     }
 }
 
 function displayUsernames(usernames) {
-    userList.innerHTML = '';
+    userSelect.innerHTML = '';
     usernames.forEach(username => {
-    const li = document.createElement('li');
-    li.textContent = username;
-    userList.appendChild(li);
+    const option = document.createElement('option');
+    option.value = username;
+    option.textContent = username;
+    userSelect.appendChild(option);
     });
+}
+
+function handleSelectChange() {
+    searchInput.value = userSelect.value;
 }
 
 // Debounce function to reduce API requests while typing
