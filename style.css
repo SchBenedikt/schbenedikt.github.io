@@ -340,6 +340,11 @@ body {
 }
 /* Weitere CSS-Styles hier */
 
+.update-username {
+  display: flex;
+  flex-direction: column;
+}
+
 .username-input-container {
   display: flex;
   align-items: center;
@@ -377,6 +382,21 @@ body {
 .username-input-container button:focus {
   outline: none;
 }
+
+/* GitHub Search */
+
+select {
+  position: relative;
+  border: none;
+  width: 50%;
+  transform: translate(35%, -10%);
+  background: transparent;
+}
+
+select option {
+  margin-top: 5px;
+}
+
 img {
   max-width: 100%;
   height: auto;
