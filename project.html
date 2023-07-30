@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project README</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <div class="container">
-      <h1 id="project-title"></h1>
-      <div class="project" id="project-readme"></div>
-    </div>
-  
-    <script>
+  <div class="container">
+    <h1 id="project-title"></h1>
+    <div class="project" id="project-readme"></div>
+  </div>
+
+  <script>
     const urlParams = new URLSearchParams(window.location.search);
     const projectTitle = decodeURIComponent(urlParams.get('project'));
     const projectContent = decodeURIComponent(urlParams.get('content'));
@@ -22,7 +21,34 @@
     const projectReadmeElement = document.getElementById("project-readme");
     projectTitleElement.textContent = projectTitle;
 
-    projectReadmeElement.innerHTML = projectContent;
-    </script>
-  </body>
+    // Function to render the GitHub flavored Markdown as HTML
+    async function renderReadme(markdownContent) {
+      try {
+        const response = await fetch('https://api.github.com/markdown', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            text: markdownContent,
+            mode: 'gfm',
+            context: 'github/gollum'
+          })
+        });
+
+        if (response.ok) {
+          const htmlContent = await response.text();
+          projectReadmeElement.innerHTML = htmlContent;
+        } else {
+          console.error('Error fetching GitHub API:', response.status);
+        }
+      } catch (error) {
+        console.error('Error rendering README:', error);
+      }
+    }
+
+    // Call the function to render the README content as formatted HTML
+    renderReadme(projectContent);
+  </script>
+</body>
 </html>
