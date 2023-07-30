@@ -1,5 +1,8 @@
    // Default username
 let username = "schBenedikt";
+const home = document.getElementById("home");
+home.href = `https://www.github.com/${username}`;
+
 
 // Function to get the GitHub user data via API
 async function getGitHubUser(username) {
@@ -94,7 +97,7 @@ function closeOverlay() {
 function updateUsername() {
   const usernameInput = document.getElementById("username-input");
   const newUsername = usernameInput.value.trim();
-
+  home.href = `https://www.github.com/${newUsername}`;
   if (newUsername === "") {
     alert("Please enter a valid username.");
     return;
