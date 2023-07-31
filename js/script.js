@@ -17,6 +17,32 @@ async function getGitHubProjects(username) {
    const data = await response.json();
    return data;
 }
+async function fetchUserEmail(username) {
+  try {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    if (response.ok) {
+      const data = await response.json();
+      return data.email;
+    } else {
+      console.error('Error fetching user data from GitHub API:', response.status);
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    return null;
+  }
+}
+async function updateContactButton(username) {
+  const contactButton = document.querySelector('#contact-button');
+  const userEmail = await fetchUserEmail(username);
+
+  if (userEmail) {
+    contactButton.href = `mailto:${userEmail}`;
+  } else {
+    contactButton.disabled = true;
+    contactButton.textContent = 'E-Mail nicht verfügbar';
+  }
+}
 
 // Function to create the project cards based on the project data
 function createProjectCards(projects) {
