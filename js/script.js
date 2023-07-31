@@ -23,28 +23,29 @@ function createProjectCards(projects) {
    const projectsContainer = document.querySelector(".projects");
    projectsContainer.innerHTML = ""; // Clear existing project cards
 
-   projects.forEach((project) => {
-     const projectCard = document.createElement("div");
-     projectCard.classList.add("project");
-     projectCard.onclick = () => openOverlay(project);
+   for (let i = 0; i < projects.length; i++) {
+    const project = projects[i];
+    const projectCard = document.createElement("div");
+    projectCard.classList.add("project");
+    projectCard.onclick = () => openOverlay(project);
 
-     const title = document.createElement("h2");
-     title.textContent = project.name;
+    const title = document.createElement("h2");
+    title.textContent = project.name;
 
-     const description = document.createElement("p");
-     description.textContent = project.description;
+    const description = document.createElement("p");
+    description.textContent = project.description;
 
-     const viewLink = document.createElement("a");
-     viewLink.href = project.html_url;
-     viewLink.textContent = "View Project";
-     viewLink.target = "_blank"; // Open link in a new tab
+    const viewLink = document.createElement("a");
+    viewLink.href = project.html_url;
+    viewLink.textContent = "View Project";
+    viewLink.target = "_blank"; // Open link in a new tab
 
-     projectCard.appendChild(title);
-     projectCard.appendChild(description);
-     projectCard.appendChild(viewLink);
+    projectCard.appendChild(title);
+    projectCard.appendChild(description);
+    projectCard.appendChild(viewLink);
 
-     projectsContainer.appendChild(projectCard);
-   });
+    projectsContainer.appendChild(projectCard);
+  }
 }
 
 // Function to get the contents of a project's README.md file
