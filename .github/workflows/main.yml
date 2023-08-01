@@ -1,0 +1,9 @@
+- name: Website Healthcheck
+  # You may pin to the exact commit or the version.
+  # uses: johnlokerse/website-healthcheck@c095259b01fab47a75d07400bc24f743af28377e
+  uses: johnlokerse/website-healthcheck@v3
+  with:
+    # Specify the URL to scan
+    web-url: https://schbenedikt.github.io/Github-API-Status/
+    # Specify the string that has to be scanned
+    scan-for-text: Connection error.
