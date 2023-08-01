@@ -271,25 +271,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   background-color: transparent;
   
-}
-
-.search input {
-  min-width: 100px;
-  padding: 8px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  flex-basis: 50%;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
-  width: auto;
-}
-
-.search input:focus {
-  outline: none;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .search::before {
@@ -438,4 +422,24 @@ img {
 
 .menu a:focus {
   outline: none;
+}
+
+
+.username-input-container input,
+.search input {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  flex-basis: 50%;
+  margin-right: 10px;
+  width: auto;
+  background-color: #fff;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.username-input-container input:focus,
+.search input:focus {
+  outline: none;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 }

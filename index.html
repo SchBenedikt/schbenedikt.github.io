@@ -52,10 +52,15 @@
           <select
             class="gh-search-list"
             id="userSelect"
-            size="5"
+            size="1"
+	    
             onchange="handleSelectChange()"
           ></select>
         </div>
+<br><br>
+<div class="search">
+  <input type="text" id="search-input" placeholder="Search projects..." oninput="filterProjects()">
+</div>
       </div>
 
       <div class="projects">
