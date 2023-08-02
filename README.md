@@ -13,11 +13,10 @@ If you like my project, I would appreciate your support with a star ⭐!
 
 ---
 
-![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/3d4b79a6-3859-4af6-b63b-3b5890c9c2de)
-![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/94c3e630-6d8b-4f80-bba5-069d457952c8)
-![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/df05abab-f7b5-4aa8-a0b7-d6d9023a1cc1)
-![Screenshot](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/1375b76a-9b28-4822-9ebb-b60bc445f20b)
-
+![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/638dbd82-a2ca-4e5a-a8d0-02130faea073)
+![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/3a287960-e50a-43ab-aad8-4df5010da334)
+![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/cd221670-7f4f-47ef-bc3d-414961e7809f)
+![image](https://github.com/SchBenedikt/schbenedikt.github.io/assets/137323528/666e6aa4-d53f-4bc2-8ed3-fd8edc149edc)
 
 ---
 
