@@ -13,9 +13,9 @@ async function getGitHubUser(username) {
 
 // Function to get the GitHub project data via API
 async function getGitHubProjects(username) {
-   const response = await fetch(`https://api.github.com/users/${username}/repos`);
-   const data = await response.json();
-   return data;
+  const response = await fetch(`https://api.github.com/users/${username}/repos`);
+  const data = await response.json();
+  return data.slice(0, 15);
 }
 
 // Function to create the project cards based on the project data
