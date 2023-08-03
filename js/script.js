@@ -62,6 +62,18 @@ async function getReadmeContent(username, repoName) {
    }
 }
 
+async function getRepositoryDetails(username, projectName) {
+  try {
+    const response = await fetch(`https://api.github.com/repos/${username}/${projectName}`);
+    const data = await response.json();
+    data.username = username; // Füge den Username zum Datenobjekt hinzu
+    return data;
+  } catch (error) {
+    console.error("Error fetching repository details:", error);
+    return null;
+  }
+}
+
 async function openOverlay(project) {
   const overlay = document.getElementById("overlay");
   const overlayTitle = document.getElementById("overlay-title");
@@ -78,16 +90,30 @@ async function openOverlay(project) {
       // Get README.md content
       const readmeContent = await getReadmeContent(username, project.name);
 
-      // Open the new page with README content
-      window.open(`project.html?project=${encodeURIComponent(project.name)}&content=${encodeURIComponent(readmeContent)}`, '_blank');
+      // Get repository details (including the number of stars, forks, watchers, and contributors)
+      const repositoryDetails = await getRepositoryDetails(username, project.name);
+
+      // Get the topics for the project
+      const topicsResponse = await fetch(`https://api.github.com/repos/${username}/${project.name}/topics`, {
+        headers: {
+          Accept: "application/vnd.github.mercy-preview+json" // Include the 'topics' preview header
+        }
+      });
+      const topicsData = await topicsResponse.json();
+      const topics = topicsData.names.join(", ");
+
+      // Open the new page with README content, number of stars, forks, watchers, topics, and project description
+      window.open(`project.html?username=${encodeURIComponent(username)}&project=${encodeURIComponent(project.name)}&content=${encodeURIComponent(readmeContent)}&stars=${encodeURIComponent(repositoryDetails.stargazers_count)}&forks=${encodeURIComponent(repositoryDetails.forks_count)}&watchers=${encodeURIComponent(repositoryDetails.watchers_count)}&topics=${encodeURIComponent(topics)}&description=${encodeURIComponent(project.description)}`, '_blank');
     } catch (error) {
-      console.error("Error getting README.md content:", error);
+      console.error("Error getting README.md content, repository details, or topics:", error);
       return;
     }
   }
 
   overlay.classList.add("inactive");
 }
+
+
 
 // Function to close the overlay
 function closeOverlay() {
@@ -205,4 +231,4 @@ $(document).ready(function(){
   }
 
   fetchData();
-});
+}); 
