@@ -20,7 +20,7 @@
 
     function getButtonColor() {
       const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)button_color\s*=\s*([^;]*).*$)|^.*$/, "$1");
-      return decodeURIComponent(cookieValue) || "#333";
+      return decodeURIComponent(cookieValue) || "#fff";
     }
 
     function applyButtonColor() {
@@ -28,7 +28,7 @@
       const buttonColor = getButtonColor();
       buttons.forEach(button => {
         button.style.backgroundColor = buttonColor;
-        button.style.color = "#fff"; // To ensure the text is visible on the colored button
+        button.style.color = "#333";
       });
     }
 
