@@ -16,12 +16,12 @@
         <div class="about" onclick="openOverlay('project')">
           <div class="menu">
             <ul>
-              <li><a id="home">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a class="button" id="home">Home</a></li>
+              <li><a class="button" href="settings.html">Settings</a></li>
+              <li><a class="button" href="#">Contact</a></li>
             </ul>
           </div>
-          <img
+ <img
             class="profile-img"
             id="profile-picture"
             src=""
@@ -47,7 +47,7 @@
               placeholder="Enter your GitHub username"
               onkeydown="handleKeyDown(event)"
             />
-            <button onclick="updateUsername()">Update</button>
+            <button  onclick="updateUsername()">Update</button>
           </div>
           <select
             class="gh-search-list"
@@ -59,11 +59,11 @@
         </div>
 <br><br>
 <div class="search">
-  <input type="text" id="search-input" placeholder="Search projects..." oninput="filterProjects()">
+  <input type="text"  id="search-input" placeholder="Search projects..." oninput="filterProjects()">
 </div>
       </div>
 
-      <div class="projects">
+      <div class="projects" >
         <!-- Project data is dynamically inserted here -->
       </div>
     </div>
@@ -80,5 +80,6 @@
 
     <script type="text/javascript" src="js/predict.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="settings.js"></script>
   </body>
 </html>
