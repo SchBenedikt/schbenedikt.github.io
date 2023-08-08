@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .color-picker-container {
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    .color-picker-label {
+      font-size: 18px;
+      margin-bottom: 10px;
+      background-image: linear-gradient(135deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080, #ff0000);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: rainbow 5s linear infinite;
+    }
+    .color-picker {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .button {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #fff;
+      color: #333;
+      border-radius: 5px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      width: auto;
+      margin-bottom: 10px;
+    }
+    .button:hover {
+      transform: scale(1.16);
+    }
+    .project {
+      background-color: #f8f8f8;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      margin-left: 80px;
+    }
+    @keyframes rainbow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="color-picker-container">
+      <h2 class="color-picker-label">Choose Background Color:</h2>
+      <input
+        type="color"
+        class="color-picker"
+        id="background-color"
+        value="#ededed"
+        onchange="saveBackgroundColor(this.value); applyBackgroundColor()"
+      />
+      <br>
+      <h2 class="color-picker-label">Choose Button Color:</h2>
+      <input
+        type="color"
+        class="color-picker"
+        id="button-color"
+        value="#333"
+        onchange="saveButtonColor(this.value); applyButtonColor()"
+      />
+      <br>
+      <h2 class="color-picker-label">Choose Project Color:</h2>
+      <input
+        type="color"
+        class="color-picker"
+        id="project-color"
+        value="#f8f8f8"
+        onchange="saveProjectColor(this.value); applyProjectColor()"
+      />
+    </div>
+  </div>
+
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/predict.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
