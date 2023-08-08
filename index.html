@@ -21,12 +21,21 @@
               <li><a href="#">Contact</a></li>
             </ul>
           </div>
+
           <img
             class="profile-img"
             id="profile-picture"
             src=""
             alt="Profile Picture"
           />
+          <div class="search">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search projects..."
+              oninput="filterProjects()"
+            />
+          </div>
           <h2>About Me</h2>
           <p id="about-description"></p>
           <!-- Display the text when no user is displayed -->
@@ -35,10 +44,12 @@
           <!-- Display status of GitHub API -->
           <div id="github-api-status">Checking GitHub API status...</div>
         </div>
+
         <div class="links" onclick="openOverlay('links')">
           <br />
           <div id="username"></div>
         </div>
+
         <div class="update-username">
           <div class="username-input-container">
             <input
@@ -57,14 +68,6 @@
           ></select>
         </div>
         <br /><br />
-        <div class="search">
-          <input
-            type="text"
-            id="search-input"
-            placeholder="Search projects..."
-            oninput="filterProjects()"
-          />
-        </div>
       </div>
 
       <div class="projects">
@@ -72,12 +75,9 @@
       </div>
     </div>
 
-    <div class="overlay" id="overlay" onclick="closeOverlay(event)">
+    <div class="overlay" id="overlay">
       <div class="overlay-content" id="overlay-content">
-        <div class="close-btn" onclick="closeOverlay(event)">
-          <div class="close-icon"></div>
-        </div>
-        <h2 id="overlay-title">About Me</h2>
+        <h2 id="overlay-title"></h2>
         <div id="overlay-readme"></div>
       </div>
     </div>

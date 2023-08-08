@@ -5,10 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project README</title>
     <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Neue CSS-Regel, um die linke Seitenleiste zu stylen */
+      .forks,
+      .watchers {
+        margin-top: 10px;
+      }
+
+      .stars,
+      .forks,
+      .watchers {
+        display: block;
+      }
+
+      /* CSS-Styling für den fett formatierten Text */
+      .bold-text {
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <h1 id="project-title"></h1>
+      <div class="sidebar">
+        <h1 id="project-title"></h1>
+        <br />
+        <div class="project" id="project-description"></div>
+        <!-- New section to display project description -->
+        <br />
+        <div class="project" id="project-topics"></div>
+        <!-- New section to display topics -->
+        <br />
+        <div class="project">
+          <a class="stars button" id="project-stars" target="_blank"></a>
+          <br />
+          <a class="forks button" id="project-forks" target="_blank"></a>
+          <br />
+          <a class="watchers button" id="project-watchers" target="_blank"></a>
+        </div>
+      </div>
       <div class="project" id="project-readme"></div>
     </div>
 
