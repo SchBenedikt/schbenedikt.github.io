@@ -79,7 +79,8 @@ body {
 }
 
 .project:hover {
-  /* transform: scale(1.09); */
+  transform: scale(1.04);
+  transition: 0.4s;
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
 }
 
