@@ -1,91 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>My GitHub Projects</title>
-        <link rel="stylesheet" href="style.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
-        <link rel="stylesheet" href="styles1.css">
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        />
-      </head>
-<body>
-    <div class="overlay">
-        <!-- Overlay inner wrapper -->
-        <div class="container">
-            <div class="sidebar">
-              <div class="about" onclick="openOverlay('project')">
-                <div class="menu">
-                  <ul>
-                    <li><a class="button" id="home">Home</a></li>
-                    <li><a class="button" href="settings.html">Settings</a></li>
-                    <li><a class="button" href="#">Contact</a></li>
-                  </ul>
-                </div>
-                <img
-                  class="profile-img"
-                  id="profile-picture"
-                  src=""
-                  alt="Profile Picture"
-                />
-                <div class="search">
-                  <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Search projects..."
-                    oninput="filterProjects()"
-                  />
-                </div>
-                <h2>About Me</h2>
-                <p id="about-description"></p>
-                <!-- Display the text when no user is displayed -->
-                <p id="enter-username-text"></p>
-      
-                <!-- Display status of GitHub API -->
-                <div id="github-api-status"><strong> GitHub API status...</strong></div>
-              </div>
-      
-              <div class="links" onclick="openOverlay('links')">
-                <br />
-                <div id="username"></div>
-              </div>
-      
-              <div class="update-username">
-                <div class="username-input-container">
-                  <input
-                    type="text"
-                    id="username-input"
-                    placeholder="Enter your GitHub username"
-                    onkeydown="handleKeyDown(event)"
-                  />
-                  <button onclick="updateUsername()">Update</button>
-                </div>
-                <select
-                  class="gh-search-list"
-                  id="userSelect"
-                  size="1"
-                  onchange="handleSelectChange()"
-                ></select>
-              </div>
-              <br /><br />
-            </div>
-      
-            <div class="projects">
-              <!-- Project data is dynamically inserted here -->
-            </div>
+<html>
+  <head>
+    <title>My GitHub Projects</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <div class="about" onclick="openOverlay('project')">
+          <div class="menu">
+            <ul>
+              <li><a class="button" id="home">Home</a></li>
+              <li><a class="button" href="settings.html">Settings</a></li>
+              <li><a class="button" href="#">Contact</a></li>
+            </ul>
           </div>
-      </div>
-      <div class="overlay" id="overlay">
-        <div class="overlay-content" id="overlay-content">
-          <h2 id="overlay-title"></h2>
-          <div id="overlay-readme"></div>
+          <img
+            class="profile-img"
+            id="profile-picture"
+            src=""
+            alt="Profile Picture"
+          />
+          <div class="search">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search projects..."
+              oninput="filterProjects()"
+            />
+          </div>
+          <h2>About Me</h2>
+          <p id="about-description"></p>
+          <!-- Display the text when no user is displayed -->
+          <p id="enter-username-text"></p>
+
+          <!-- Display status of GitHub API -->
+          <div id="github-api-status">Checking GitHub API status...</div>
         </div>
+
+        <div class="links" onclick="openOverlay('links')">
+          <br />
+          <div id="username"></div>
+        </div>
+
+        <div class="update-username">
+          <div class="username-input-container">
+            <input
+              type="text"
+              id="username-input"
+              placeholder="Enter your GitHub username"
+              onkeydown="handleKeyDown(event)"
+            />
+            <button onclick="updateUsername()">Update</button>
+          </div>
+          <select
+            class="gh-search-list"
+            id="userSelect"
+            size="1"
+            onchange="handleSelectChange()"
+          ></select>
+        </div>
+        <br /><br />
       </div>
-  
-      <script type="text/javascript" src="js/predict.js"></script>
-      <script type="text/javascript" src="js/settings.js"></script>
-      <script type="text/javascript" src="js/index.js"></script>
-</body>
+
+      <div class="projects">
+        <!-- Project data is dynamically inserted here -->
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+      <div class="overlay-content" id="overlay-content">
+        <h2 id="overlay-title"></h2>
+        <div id="overlay-readme"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="js/predict.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+  </body>
 </html>
