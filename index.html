@@ -27,14 +27,6 @@
             src=""
             alt="Profile Picture"
           />
-          <div class="search">
-            <input
-              type="text"
-              id="search-input"
-              placeholder="Search projects..."
-              oninput="filterProjects()"
-            />
-          </div>
           <h2>About Me</h2>
           <p id="about-description"></p>
           <!-- Display the text when no user is displayed -->
@@ -69,9 +61,19 @@
         <br /><br />
       </div>
 
+      <div class="projectWrapper">
+        <div class="search">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search projects..."
+            oninput="filterProjects()"
+          />
+        </div>
       <div class="projects">
         <!-- Project data is dynamically inserted here -->
       </div>
+    </div>
     </div>
 
     <div class="overlay" id="overlay">
