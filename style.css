@@ -145,7 +145,7 @@ body {
 
 .close-btn:hover .close-icon:before,
 .close-btn:hover .close-icon:after {
-  background-color: #a30b0b;
+  background-color: #130202;
   transform: translate(-50%, -50%) rotate(45deg) scale(1.1);
 }
 
