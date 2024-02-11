@@ -28,18 +28,20 @@ function createProjectCards(projects) {
   showAllButton.textContent = "Show All Projects";
   showAllButton.onclick = () => {
     showAllButton.style.display = "none"; // Hide the button after clicking
-    projects.forEach(project => {
-      const projectCard = createProjectCard(project);
-      projectsContainer.appendChild(projectCard);
+    projects.forEach((project, index) => {
+      if (index >= maxProjectsToShow) {
+        const projectCard = createProjectCard(project);
+        projectsContainer.appendChild(projectCard);
+      }
     });
     const collapseButton = document.createElement("button");
     collapseButton.textContent = "Collapse";
     collapseButton.onclick = () => {
       projectsContainer.innerHTML = ""; // Clear project cards
-      projects.slice(0, maxProjectsToShow).forEach(project => {
-        const projectCard = createProjectCard(project);
+      for (let i = 0; i < Math.min(projects.length, maxProjectsToShow); i++) {
+        const projectCard = createProjectCard(projects[i]);
         projectsContainer.appendChild(projectCard);
-      });
+      }
       projectsContainer.appendChild(showAllButton); // Show the "Show All Projects" button
     };
     projectsContainer.appendChild(collapseButton); // Show the "Collapse" button
@@ -81,16 +83,16 @@ function createProjectCard(project) {
 
 // Function to get the contents of a project's README.md file
 async function getReadmeContent(username, repoName) {
-   const response = await fetch(`https://api.github.com/repos/${username}/${repoName}/readme`);
-   const data = await response.json();
+  const response = await fetch(`https://api.github.com/repos/${username}/${repoName}/readme`);
+  const data = await response.json();
 
-   if (data.download_url) {
-     const readmeResponse = await fetch(data.download_url);
-     const readmeContent = await readmeResponse.text();
-     return readmeContent;
-   } else {
-     throw new Error("README.md file not found.");
-   }
+  if (data.download_url) {
+    const readmeResponse = await fetch(data.download_url);
+    const readmeContent = await readmeResponse.text();
+    return readmeContent;
+  } else {
+    return "No README.md file found.";
+  }
 }
 
 async function getRepositoryDetails(username, projectName) {
