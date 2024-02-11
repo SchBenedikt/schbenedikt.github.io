@@ -20,32 +20,63 @@ async function getGitHubProjects(username) {
 
 // Function to create the project cards based on the project data
 function createProjectCards(projects) {
-   const projectsContainer = document.querySelector(".projects");
-   projectsContainer.innerHTML = ""; // Clear existing project cards
+  const projectsContainer = document.querySelector(".projects");
+  projectsContainer.innerHTML = ""; // Clear existing project cards
 
-   for (let i = 0; i < projects.length; i++) {
+  const maxProjectsToShow = 5; // Maximum number of projects to show initially
+  const showAllButton = document.createElement("button");
+  showAllButton.textContent = "Show All Projects";
+  showAllButton.onclick = () => {
+    showAllButton.style.display = "none"; // Hide the button after clicking
+    projects.forEach(project => {
+      const projectCard = createProjectCard(project);
+      projectsContainer.appendChild(projectCard);
+    });
+    const collapseButton = document.createElement("button");
+    collapseButton.textContent = "Collapse";
+    collapseButton.onclick = () => {
+      projectsContainer.innerHTML = ""; // Clear project cards
+      projects.slice(0, maxProjectsToShow).forEach(project => {
+        const projectCard = createProjectCard(project);
+        projectsContainer.appendChild(projectCard);
+      });
+      projectsContainer.appendChild(showAllButton); // Show the "Show All Projects" button
+    };
+    projectsContainer.appendChild(collapseButton); // Show the "Collapse" button
+  };
+
+  for (let i = 0; i < Math.min(projects.length, maxProjectsToShow); i++) {
     const project = projects[i];
-    const projectCard = document.createElement("div");
-    projectCard.classList.add("project");
-    projectCard.onclick = () => openOverlay(project);
-
-    const title = document.createElement("h2");
-    title.textContent = project.name;
-
-    const description = document.createElement("p");
-    description.textContent = project.description;
-
-    const viewLink = document.createElement("a");
-    viewLink.href = project.html_url;
-    viewLink.textContent = "View Project";
-    viewLink.target = "_blank"; // Open link in a new tab
-
-    projectCard.appendChild(title);
-    projectCard.appendChild(description);
-    projectCard.appendChild(viewLink);
-
+    const projectCard = createProjectCard(project);
     projectsContainer.appendChild(projectCard);
   }
+
+  if (projects.length > maxProjectsToShow) {
+    projectsContainer.appendChild(showAllButton);
+  }
+}
+
+function createProjectCard(project) {
+  const projectCard = document.createElement("div");
+  projectCard.classList.add("project");
+  projectCard.onclick = () => openOverlay(project);
+
+  const title = document.createElement("h2");
+  title.textContent = project.name;
+
+  const description = document.createElement("p");
+  description.textContent = project.description;
+
+  const viewLink = document.createElement("a");
+  viewLink.href = project.html_url;
+  viewLink.textContent = "View Project";
+  viewLink.target = "_blank"; // Open link in a new tab
+
+  projectCard.appendChild(title);
+  projectCard.appendChild(description);
+  projectCard.appendChild(viewLink);
+
+  return projectCard;
 }
 
 // Function to get the contents of a project's README.md file
@@ -214,7 +245,7 @@ $(document).ready(function(){
           setTimeout(fetchData, 3000); // Retry after 3 seconds
         } else {
           $(".container").addClass("error");
-          $("#github-api-status").html("🔴 GitHub API is not available");
+          $("#github-api-status").html("🔴 GitHub API is not available. <br> <br>Please wait some minutes.");
         }
       }
     });
