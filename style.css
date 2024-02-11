@@ -79,7 +79,7 @@ body {
 }
 
 .project:hover {
-  transform: scale(1.04);
+  transform: scale(1.1);
   transition: 0.4s;
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -95,7 +95,7 @@ body {
 }
 
 .project p {
-  color: #666;
+  color: #812020;
 }
 
 .project a {
