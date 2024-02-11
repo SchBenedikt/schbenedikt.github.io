@@ -73,22 +73,32 @@ function displayWatchers(watchers) {
 // Function to display the project description
 function displayDescription(description) {
     const descriptionText = `<span class="bold-text">Description:</span> <br><br>${
-        description || "No description available."
+        description !== "null" ? description : "No description provided."
     }`;
     projectDescriptionElement.innerHTML = descriptionText;
 }
 
 // Function to display the topics and their links as buttons
 function displayTopics(topics) {
+    if (!topics) {
+        projectTopicsElement.style.display = "none";
+        return;
+    }
+
     const topicsList = topics.split(","); // Assuming topics are comma-separated
     const topicsHTML = topicsList.map(
         (topic) =>
-        `<button class="button" onclick="openTopicLink('${topic}')">${topic}</button>`
+        `<button class="button" onclick="openTopicLink('${topic}')" style="margin-right: 5px;">${topic}</button>`
     );
     const topicsText = `<span class="bold-text">Topics:</span><br><br> ${topicsHTML.join(
         " "
     )}`;
     projectTopicsElement.innerHTML = topicsText;
+}
+function displayOwner(username) {
+    const ownerText = `<span class="bold-text"></span> ${username}`; //Text to display words before the name of the owner.
+    const projectOwnerElement = document.getElementById("project-owner");
+    projectOwnerElement.innerHTML = ownerText;
 }
 
 // Call the function to render the README content as formatted HTML
@@ -105,6 +115,9 @@ displayWatchers(projectWatchers);
 
 // Call the function to display the project description
 displayDescription(projectDescription);
+
+// Call the function to display the owner of the project
+displayOwner(username);
 
 // Call the function to display the topics and their links as buttons
 displayTopics(projectTopics);
