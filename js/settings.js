@@ -27,21 +27,6 @@ function applyUnsplash() {
   unsplashCheckbox.checked = isUnsplashEnabled();
 }
 
-function toggleStyle(checked) {
-  document.cookie = `style_enabled=${checked}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
-}
-
-function isStyleEnabled() {
-  const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)style_enabled\s*=\s*([^;]*).*$)|^.*$/, "$1");
-  return cookieValue === "true";
-}
-
-function applyStyle() {
-  const styleCheckbox = document.getElementById("style");
-  styleCheckbox.checked = isStyleEnabled();
-  
-}
-
 applyBackgroundColor();
 applyUnsplash();
 applyStyle();
