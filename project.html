@@ -45,5 +45,24 @@
     </div>
 
     <script type="text/javascript" src="js/project.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+    <script>
+      if (isUnsplashEnabled()) {
+        fetch('https://source.unsplash.com/1600x900/?nature')
+          .then(response => {
+            document.body.style.backgroundImage = `url(${response.url})`;
+          })
+          .catch(error => console.error('Fehler beim Laden des Hintergrundbilds:', error));
+      }
+
+      window.addEventListener('resize', () => {
+        const windowHeight = window.innerHeight;
+        const formHeight = document.getElementById('form').offsetHeight;
+        const padding = (windowHeight - formHeight) / 2;
+        document.body.style.paddingTop = padding + 'px';
+      });
+
+      window.dispatchEvent(new Event('resize'));
+    </script>
   </body>
 </html>
