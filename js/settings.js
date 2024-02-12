@@ -1,54 +1,48 @@
+function saveBackgroundColor(color) {
+  document.cookie = `background_color=${encodeURIComponent(color)}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+}
 
-    function saveBackgroundColor(color) {
-      document.cookie = `background_color=${encodeURIComponent(color)}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
-    }
+function getBackgroundColor() {
+  const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)background_color\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  return decodeURIComponent(cookieValue) || "#ededed";
+}
 
-    function getBackgroundColor() {
-      const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)background_color\s*=\s*([^;]*).*$)|^.*$/, "$1");
-      return decodeURIComponent(cookieValue) || "#ededed";
-    }
+function applyBackgroundColor() {
+  const body = document.body;
+  const backgroundColor = getBackgroundColor();
+  body.style.backgroundColor = backgroundColor;
+}
 
-    function applyBackgroundColor() {
-      const body = document.body;
-      const backgroundColor = getBackgroundColor();
-      body.style.backgroundColor = backgroundColor;
-    }
+function toggleUnsplash(checked) {
+  document.cookie = `unsplash_enabled=${checked}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+}
 
-    function saveButtonColor(color) {
-      document.cookie = `button_color=${encodeURIComponent(color)}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
-    }
+function isUnsplashEnabled() {
+  const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)unsplash_enabled\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  return cookieValue === "true";
+}
 
-    function getButtonColor() {
-      const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)button_color\s*=\s*([^;]*).*$)|^.*$/, "$1");
-      return decodeURIComponent(cookieValue) || "#fff";
-    }
+function applyUnsplash() {
+  const unsplashCheckbox = document.getElementById("unsplash");
+  unsplashCheckbox.checked = isUnsplashEnabled();
+}
 
-    function applyButtonColor() {
-      const buttons = document.querySelectorAll(".button");
-      const buttonColor = getButtonColor();
-      buttons.forEach(button => {
-        button.style.backgroundColor = buttonColor;
-        button.style.color = "#333";
-      });
-    }
+function toggleStyle(checked) {
+  document.cookie = `style_enabled=${checked}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
+}
 
-    function saveProjectColor(color) {
-      document.cookie = `project_color=${encodeURIComponent(color)}; expires=Fri, 31 Dec 9999 23:59:59 GMT;`;
-    }
+function isStyleEnabled() {
+  const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)style_enabled\s*=\s*([^;]*).*$)|^.*$/, "$1");
+  return cookieValue === "true";
+}
 
-    function getProjectColor() {
-      const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)project_color\s*=\s*([^;]*).*$)|^.*$/, "$1");
-      return decodeURIComponent(cookieValue) || "#f8f8f8";
-    }
+function applyStyle() {
+  const styleCheckbox = document.getElementById("style");
+  styleCheckbox.checked = isStyleEnabled();
+  
+}
 
-    function applyProjectColor() {
-      const projects = document.querySelectorAll(".project");
-      const projectColor = getProjectColor();
-      projects.forEach(project => {
-        project.style.backgroundColor = projectColor;
-      });
-    }
-
-    applyBackgroundColor();
-    applyButtonColor();
-    applyProjectColor();
+applyBackgroundColor();
+applyUnsplash();
+applyStyle();
+applyGlassStyle();
