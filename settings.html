@@ -12,7 +12,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
     }
-    .color-picker-label {
+    .unsplash-check {
       font-size: 18px;
       margin-bottom: 10px;
       background-image: linear-gradient(135deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ff80, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080, #ff0000);
@@ -43,7 +43,7 @@
     .button:hover {
       transform: scale(1.16);
     }
-    .project {
+    .project, .project-card {
       background-color: #f8f8f8;
       padding: 20px;
       margin-bottom: 20px;
@@ -68,7 +68,7 @@
 <body>
   <div class="container">
     <div class="color-picker-container">
-      <h2 class="color-picker-label">Choose Background Color:</h2>
+      <h2 class="unsplash-check">Choose Background Color:</h2>
       <input
         type="color"
         class="color-picker"
@@ -76,23 +76,14 @@
         value="#ededed"
         onchange="saveBackgroundColor(this.value); applyBackgroundColor()"
       />
-      <br>
-      <h2 class="color-picker-label">Choose Button Color:</h2>
+      <br><br>
+
+
+      <h2 class="unsplash-check">Enable Unsplash:</h2>
       <input
-        type="color"
-        class="color-picker"
-        id="button-color"
-        value="#333"
-        onchange="saveButtonColor(this.value); applyButtonColor()"
-      />
-      <br>
-      <h2 class="color-picker-label">Choose Project Color:</h2>
-      <input
-        type="color"
-        class="color-picker"
-        id="project-color"
-        value="#f8f8f8"
-        onchange="saveProjectColor(this.value); applyProjectColor()"
+        type="checkbox"
+        id="unsplash"
+        onchange="toggleUnsplash(this.checked)"
       />
     </div>
   </div>
@@ -100,5 +91,36 @@
     <script type="text/javascript" src="js/settings.js"></script>
     <script type="text/javascript" src="js/predict.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script>
+      const unsplashCheckbox = document.getElementById('unsplash');
+      if (unsplashCheckbox.checked) {
+
+        // Zufälliges Hintergrundbild von Unsplash holen
+        fetch('https://source.unsplash.com/1600x900/?nature')
+          .then(response => {
+              document.body.style.backgroundImage = `url(${response.url})`;
+          })
+          .catch(error => console.error('Fehler beim Laden des Hintergrundbilds:', error));
+
+        // Automatische Anpassung des oberen Paddings
+        window.addEventListener('resize', () => {
+            const windowHeight = window.innerHeight;
+            const formHeight = document.getElementById('form').offsetHeight;
+            const padding = (windowHeight - formHeight) / 2;
+            document.body.style.paddingTop = padding + 'px';
+        });
+
+        // Initialisierung der Anpassung des oberen Paddings
+        window.dispatchEvent(new Event('resize'));
+      }
+
+if (document.getElementById('style').checked) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'style-glass.css';
+  document.head.appendChild(link);
+}
+
+    </script>
 </body>
 </html>
