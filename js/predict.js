@@ -1,9 +1,8 @@
 const apiUrl = 'https://api.github.com/search/users';
-const userSelect = document.getElementById('userSelect');
 const searchInput = document.getElementById('username-input');
+const datalist = document.getElementById("options");
 
-searchInput.addEventListener('input', debounce(handleInput, 300));
-userSelect.addEventListener('change', handleSelectChange);
+searchInput.addEventListener('input', debounce(handleInput, 400));
 
 async function handleInput() {
     const searchWord = searchInput.value.trim();
@@ -17,21 +16,29 @@ async function handleInput() {
 
     if (data.items) {
     const usernames = data.items.slice(0, 5).map(item => item.login);
-    displayUsernames(usernames);
+
+    if (usernames.length === 0) {
+        datalist.innerHTML = '<option value="">No results found.</option>';
+    } else if (usernames.length === 1) {
+        searchInput.value = usernames[0];
+        datalist.innerHTML = '';
     } else {
-    userSelect.innerHTML = '<option value="">No results found.</option>';
+        displayUsernames(usernames);
+    }
+    } else {
+    datalist.innerHTML = '<option value="">No results found.</option>';
     }
 }
 
 function displayUsernames(usernames) {
-    userSelect.innerHTML = '';
+    datalist.innerHTML = '';
     usernames.forEach(username => {
     const option = document.createElement('option');
     option.value = username;
-    option.textContent = username;
-    userSelect.appendChild(option);
+    datalist.appendChild(option);
     });
 }
+
 
 function handleSelectChange() {
     searchInput.value = userSelect.value;

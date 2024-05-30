@@ -3,7 +3,6 @@ body {
   background-position: center;
   background-size: cover; 
   font-family: Arial, sans-serif;
-  display: flex;
   margin: 0px;
   padding: 0;
   box-sizing: border-box;
@@ -14,16 +13,21 @@ body {
 }
 
 .container {
-  top: 0%;
   left: 0%;
-  width: 80%;
-  height: 80%;
+  max-width: 60%;
+  height: 70%;
   padding: 40px;
   background-color: #f0f0f0e7;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
  /* transform: scale(0.95); */
   display: flex;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar {
@@ -204,7 +208,7 @@ body {
 .search::before {
   content: "";
   width: auto;
-  high: auto;
+  height: auto;
   position: absolute;
   background-color: #f0f0f0;
   border-radius: 20px;
@@ -412,4 +416,9 @@ img {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   text-decoration: none;
+}
+
+
+.header {
+  margin-top: 10px;
 }
