@@ -11,6 +11,25 @@
     />
   </head>
   <body>
+
+    <div class="header">
+      <div class="update-username">
+        <div class="username-input-container">
+          <input
+            type="text"
+            id="username-input"
+            placeholder="Enter your GitHub username"
+            onkeydown="handleKeyDown(event)"
+            list="options"
+          />
+          <datalist id="options"></datalist>
+          <button onclick="updateUsername()">Update</button>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="container-wrapper">
     <div class="container">
       <div class="sidebar">
         <div class="about" onclick="openOverlay('project')">
@@ -40,25 +59,6 @@
           <br />
           <div id="username"></div>
         </div>
-
-        <div class="update-username">
-          <div class="username-input-container">
-            <input
-              type="text"
-              id="username-input"
-              placeholder="Enter your GitHub username"
-              onkeydown="handleKeyDown(event)"
-            />
-            <button onclick="updateUsername()">Update</button>
-            
-          </div>
-          <select
-            class="gh-search-list"
-            id="userSelect"
-            size="1"
-            onchange="handleSelectChange()"
-          ></select>
-        </div>
         <br /><br />
       </div>
 
@@ -76,6 +76,7 @@
       </div>
     </div>
     </div>
+  </div>
 
     <div class="overlay" id="overlay">
       <div class="overlay-content" id="overlay-content">
@@ -105,8 +106,6 @@
       });
 
       window.dispatchEvent(new Event('resize'));
-
-      
     </script>
   </body>
 </html>
