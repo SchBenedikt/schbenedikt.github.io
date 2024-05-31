@@ -14,7 +14,7 @@ body {
 
 .container {
   left: 0%;
-  max-width: 60%;
+  width: 80%;
   height: 70%;
   padding: 40px;
   background-color: #f0f0f0e7;
