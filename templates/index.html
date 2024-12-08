@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My GitHub Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <script>
+      // Überprüfen, ob der Benutzer angemeldet ist
+      window.onload = function () {
+        // Überprüfen des Cookies für die Authentifizierung
+        const isAuthenticated = document.cookie.split('; ').find(row => row.startsWith('access_token='));
+
+        // Wenn nicht authentifiziert, weiterleiten zur login.html
+        if (!isAuthenticated) {
+          window.location.href = "login";
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- Der Rest der Webseite -->
+    <div class="header">
+      <div class="update-username">
+        <div class="username-input-container">
+          <input
+            type="text"
+            id="username-input"
+            placeholder="Enter your GitHub username"
+            onkeydown="handleKeyDown(event)"
+            list="options"
+          />
+          <datalist id="options"></datalist>
+          <button onclick="updateUsername()">Update</button>
+        </div>
+      </div>
+    </div>             
+    <div class="container-wrapper">
+      <h2 style="text-align: center;">👋 Hello, {{ username }}</h2>
+    </div> 
+    <div class="container-wrapper">
+      <div class="container">
+        <div class="sidebar">
+          <div class="about" onclick="openOverlay('project')">
+            <div class="menu">
+              <ul>
+                <li><a class="button" id="home">Home</a></li>
+                <li><a class="button" href="mailto:benedikt.schaechner@web.de">Contact</a></li>
+              </ul>
+            </div>
+            <img
+              class="profile-img"
+              id="profile-picture"
+              src=""
+              alt="Profile Picture"
+            />
+            <h2>About Me</h2>
+            <p id="about-description"></p>
+            <p id="enter-username-text"></p>
+            <div id="github-api-status">Checking GitHub API status...</div>
+          </div>
+
+          <div class="links" onclick="openOverlay('links')">
+            <br />
+            <div id="username"></div>
+          </div>
+          <br /><br />
+        </div>
+
+        <div class="projectWrapper">
+          <div class="search">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search projects..."
+              oninput="filterProjects()"
+            />
+          </div>
+          <div class="projects">
+            <!-- Project data is dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay" id="overlay">
+      <div class="overlay-content" id="overlay-content">
+        <h2 id="overlay-title"></h2>
+        <div id="overlay-readme"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='predict.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+
+  </body>
+</html>
